@@ -4,8 +4,10 @@ const path=require('path')
 // const fs =require('fs/promises')
 
 navigation.get('/', function (request, response) {
-
-    response.sendFile(path.join(__dirname,'../public/notes.html'))
+    response.sendFile(path.join(__dirname,'./public/index.html'))
 })
 
+navigation.get('/notes', function (request, response) {
+    response.sendFile(path.join(__dirname,'../public/notes.html'))
+})
 module.exports= navigation
