@@ -12,6 +12,11 @@ app.use(express.urlencoded({extended:false}))
 app.use('/',navigation)
 app.use('/api',api_routes)
 
+// If the users puts the wrong URL it will bounce them back to the home page
+ app.get('*', function (request, response) {
+    response.sendFile(path.join(__dirname,'./public/index.html'))
+})
+
 app.listen(PORT, () => {
     console.log(`the server has started on http://localhost:${PORT}/`)
 })

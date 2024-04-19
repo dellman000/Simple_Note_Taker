@@ -10,4 +10,6 @@ navigation.get('/', function (request, response) {
 navigation.get('/notes', function (request, response) {
     response.sendFile(path.join(__dirname,'../public/notes.html'))
 })
+
+
 module.exports= navigation

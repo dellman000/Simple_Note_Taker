@@ -2,7 +2,7 @@ const routers = require('express').Router()
 const path=require('path')
 const {v4:generateID} = require('uuid')
 const fs =require('fs/promises')
-    
+
 
 async function getDB(){
     // reads and returns the database
@@ -15,6 +15,7 @@ async function getDB(){
 routers.get('/notes', async function (request, response) {
    // The Current Database 
     const currentDB= await getDB()
+    // console.log("/notes")
     response.send(currentDB)
  })
 
