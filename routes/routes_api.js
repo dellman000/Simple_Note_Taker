@@ -21,7 +21,7 @@ routers.get('/notes', async function (request, response) {
 
 
 // adds an item to the database
-routers.post('/notes/add', async function (request, response) {
+routers.post('/notes', async function (request, response) {
    const incomming =request.body
    const currentDB= await getDB()
    incomming.id=generateID()
@@ -31,7 +31,7 @@ routers.post('/notes/add', async function (request, response) {
    response.send("item added")   
 })
 //removes an item from the database
-routers.delete('/notes/remove/:note_id', async function (request, response) {
+routers.delete('/notes/:note_id', async function (request, response) {
     const removeID = request.params.note_id
     const currentDB= await getDB()
     //filter based on id 
@@ -41,5 +41,8 @@ routers.delete('/notes/remove/:note_id', async function (request, response) {
     await fs.writeFile('./db/db.json',JSON.stringify(result,null,2),'utf-8') 
     response.send("incomming")
  })
+
+
+
 
 module.exports=routers;

@@ -13,7 +13,8 @@ app.use('/',navigation)
 app.use('/api',api_routes)
 
 // If the users puts the wrong URL it will bounce them back to the home page
- app.get('*', function (request, response) {
+
+app.get('*', function (request, response) {
     response.sendFile(path.join(__dirname,'./public/index.html'))
 })
 
